@@ -1,0 +1,3 @@
+Using xsbt and xsbt-web-plugin.
+
+Restcontinuation doesn't work, i used this case Req pattern in old project with sbt 0.7.4 and it worked, now in 0.11 + xsbt web plugin it doesn't work for me anymore.
