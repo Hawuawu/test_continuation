@@ -6,13 +6,14 @@ import Helpers._
 
 import common._
 import http._
+import provider.servlet.containers.Jetty7AsyncProvider
 import rest.RestContinuation
 import sitemap._
 import Loc._
 
 import actors.Actor
 
-class TestServiceBoot extends Bootable  {
+class TestServiceBoot extends Bootable {
 
   def boot {
 
@@ -29,6 +30,10 @@ class TestServiceBoot extends Bootable  {
 
     actor.start()
 
+
+    //Forcing to lift jetty7 asyncProvider
+
+    LiftRules.addSyncProvider(Jetty7AsyncProvider)
 
     // where to search snippet
     LiftRules.addToPackages("com.spinoco.web.testservices.continuation")
