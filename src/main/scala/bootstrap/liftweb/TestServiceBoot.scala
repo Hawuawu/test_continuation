@@ -47,9 +47,9 @@ class TestServiceBoot extends Bootable {
     LiftRules.early.append(_.setCharacterEncoding("windows-1252"))
 
     LiftRules.dispatch.prepend({
-      case Req(List("dosomething"), _, _) => () => Full(PlainTextResponse("Doing something, my lord! :)"))
+      case Req("dosomething" :: Nil, _, _) => () => Full(PlainTextResponse("Doing something, my lord! :)"))
 
-      case Req("test_cont" :: _, _, _) =>
+      case Req("test_cont" :: Nil, _, _) =>
         RestContinuation.async {
           satisfy => {
             satisfy(XmlResponse(<tag>ok</tag>))
